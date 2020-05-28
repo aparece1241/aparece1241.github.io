@@ -1,0 +1,35 @@
+{
+  "dictionary":[
+      {
+        "active window":"In the Windows Operating system an active window is the current window that you are working on. The Windows in the background are not active.",
+        "access":"To obtain or retrieve information from a storage device. You can access a hard drive to use files that are stored there. You can access a cd drive to see the contents of a disc in the cd drive.",
+        "Access time":"This is how long it takes to access information on a storage device.",
+        "Adapter":" An add-on or inbuilt circuit board that is attached to your motherboard to give additional capabilities to your computer. For example most computers have a network adapter that will let you connect to the internet.",
+        "Add-On": "Add-On refers to a browser extension they are basically like a small program or feature addition to certain Browsers like Firefox or Opera you can get anything from Weather Updates to Extra Security, Internet Explorer also support extensions although they call them Browser Help Objects an example is the Adobe Acrobat Reader which allows PDF Files to be read in the browser window instead of having to download them.",
+        "Back Button": "This is a button on most web browsers, including Internet Explorer, that if pressed will take you back to the previous webpage you were viewing. It is usually located on the top toolbar in the left corner.",
+        
+        "Background": "When speaking of a desktop, its the same as your wallpaper (seen below) but in any other instance it is an image, or set of images creating the area behind other things, so that you are not looking at a black screen all the time, it gives the screen more depth. Also known as the area that programs that work “in the background” go, which is nowhere",
+        
+        "Backup": "A copy of the original file, folder, or disc. You usually backup items you cannot afford to lose. People backup email contacts, photos, documents, and more.",
+        
+        "Backup Storage Device": "A device to store the backup files on. It could be an external hard drive or a usb flash drive.",
+        
+        "Bandwidth": "This is the term we use to measure the amount of data and its speed through an internet connection. The more bandwidth you have, the faster the internet connection. Bandwidth is limited by the line it travel through. Your internet service provider can reduce or increase your bandwidth according to you internet plan.",
+        
+        "Batch File": "A batch file is a text file which contains a list of DOS commands and is saved with a .BAT file extension. When you run a batch file the commands are carried out by the computer. It is a mini program.",
+        "Capacity": "(hard drive capacity) Basically means what size is the hard drive, how much data can it hold, etc. “My hard drive capacity is 500GB.”",
+        
+        "Case Sensitive": "A term used to describe if it is of importance to use upper or lower case letters.",
+        
+        "Cd-Rom Drive": "(Compact disk-read only memory) An optical storage device that is read only. You cannot write on a cd-rom disc with this Cd-Rom drive.",
+        
+        "Cd-Rom Disc": "An optical storage disc that is read only. You cannot write on a cd-rom disc. You usually buy a computer game on a read only disc. This makes it safe so you can’t alter the data on the disc.",
+        
+        "Cell": "An area in which information can be entered in and contained to that area. Usually a box or rectangle shape. For example in Excel you can enter information into small separate cells that may form a table. On a webpage a cell separates items to contain them to a certain space on the page."
+        
+
+
+
+      }
+    ]
+}

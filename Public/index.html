@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <title>Online Computer Dictionary</title>
+    <link rel="icon" type="image/ico" href="../src/img/logo.png">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <style>
+        .bigCont{
+            border-left: green 1px solid;
+            margin-top: 100px;
+            display: inline-block;
+            height: 619px;
+            width: 490px;
+            margin-left: 295px;
+            padding: 5px;
+            overflow: auto;
+
+        }
+        .clear{
+            display: none;
+        }
+    </style>
+</head>
+<body style = "background-color:#c5d4ed;">
+    <!-- this my header part -->
+ 
+    <!-- this is the body of my page -->
+    <div id = "Main" style ="background-color: white;">
+        <div id = "header">
+            <center>
+                <h1 ><b>Computer Terminologies</b></h1>
+            </center>
+            </div><br>
+        <div>
+            <div id = "inputlogo">
+                <img id = "logo_pic" src="../src/img/logo.png" alt = "logo">
+                <button id="search"><img id = "s_l"src = "../src/img/search_icon.png"></button>
+                <div id = "in">
+                    <input id = "input_box" value ="" type = "text" onchange="Focus()" placeholder = "  Search computer terms. . ."/>
+                </div>
+                <br>
+                <br>
+                <hr>
+            </div>
+        </div>
+        <br>
+        <br id = "break">
+        <center>
+            <div class="bigCont">
+                <button id = "#search1" class="clear" onclick="hide()">Clear all search</button>
+                <div id="opening"><br><br><br><br><br><br><br><br><br><br>
+                    <h1>Type for the word that you want to search !!! </h1>
+                </div>
+            </div>
+             <hr class ="hr">
+            <div class = "card1"  id="day">
+                <h2>Word of the day Computer</h2>
+                <br><br><br>
+                <p>It is an electronic device that is capable of processing storing data.</p>
+                <button style="margin-top: 20px" class="go">Go!!</button>
+            </div>
+            <div class = "card1" id="trivia" style = "margin-top: 20px;">
+                <h2>Trivia about computers</h2>
+                <button class="go">Go!!</button>
+            </div>
+            <div class="card1" id="fun" style = "margin-top: 20px;">
+                <h2>Fun Games and Entertainment</h2>
+                <a href="../src/html/fun.html"><button class="go">Go!!</button></a>
+            </div>
+
+        </center><br><br>
+            <div class = "slide"><img class="images" src="../src/img/div-1.png"></div>
+            <div class = "slide"><img class="images" src="../src/img/div-2.jpg"></div>
+            <div class = "slide"><img class="images" src="../src/img/div-3.png"></div><br>
+            <br>
+           <hr>
+            <!-- <div style="margin:auto">
+                <form id = "myForm">
+                    <fieldset>
+                        <legend>Sign up Here !</legend>
+                        <br>
+                        <label>First Name</label><br>
+                        <input type="text" name="firstname"><br>
+                        <label>Last Name </label><br>
+                        <input type="text" name="lastname"><br>
+                        <label>Email     </label><br>
+                        <input type="text" name="email">
+                        <br><br>
+                        <input type="Submit" name="submit">
+                    </fieldset>
+                </form>
+            </div> -->
+    </div>
+
+<div id= "footer" style = "margin:auto">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi ipsa omnis similique laborum dignissimos aliquam itaque quas beatae, atque expedita, quos corporis nemo earum, iure incidunt voluptates in voluptatum libero.</p>
+</div>
+
+
+
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+    <script>
+        var b = document.getElementById("#search1");
+        var data,content,x,count = 0,input,keyinput = "",li;
+        $(document).ready(function(){
+            var request = new XMLHttpRequest();
+            request.open("GET","https://testapi.io/api/Yevrah/myDict",true);
+            request.send(); 
+            request.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    data = JSON.parse(this.responseText);
+                    x = data.dictionary;
+                    $("#input_box").ready(function(){
+                        $("#input_box").keypress(function(event){
+                            var key =  event.which || event.keycode;
+                            if(key == 13){
+                               console.log("Yes !!"); 
+                               erase();
+                               for(var temp of x){
+                                if(temp["word"].toLowerCase() == $("#input_box").val().toLowerCase()){
+                                    html ="<h2 class = 'word'>"+ temp["word"]+"</h2><p class = 'means'>"+temp["means"]+"</p>";
+                                    break;
+                                }else{
+                                    html = "<h1 class = 'word'<b>No Words Found</b><h1>";
+                                }          
+                            }
+                            $(".clear").after(html);
+                            show();
+                        }
+                    });
+                    });
+                    $("#search").click(function(){
+                        var html;
+                        erase();
+                        for(var temp of x){
+                            if(temp["word"].toLowerCase() == $("#input_box").val().toLowerCase()){
+                                html ="<h2 class = 'word'>"+ temp["word"]+"</h2><p class = 'means'>"+temp["means"]+"</p>";
+                                break;
+                            }else{
+                                html = "<h1 class = 'word'><b>No Words Found</b><h1>";
+                            }          
+                        }
+                        $(".clear").after(html);
+                        show();
+                        
+                    });
+                }
+                
+            };
+        });
+        function erase(){
+           $("#opening").hide();
+        }
+        function show(){
+            b.style = "display: block;";
+        }
+        function hide(){
+            $(".word").hide();
+            $(".means").hide();
+            b.style = "display: none;";
+        }
+        function FocusOut(){
+            $("li").hide();
+        }
+
+        function Focus(){
+            $("li").show();
+        }
+        mySlides();
+        function mySlides(){
+            var cont = $(".slide");
+            for(var i = 1 ; i < 3; i++){
+                cont[i].style = "display: none;";
+            }
+            var n = 100;
+            var count = 3;
+            var j;            
+            for(j = 1; j <= n; j++){
+                may(j-1,3000 * j,count);
+                count = (j % 3 == 0)? j : count;
+            }
+            
+            //     setTimeout(function(){
+            //         cont[0].style = "display:none;";
+            //         cont[1].style = "display: block";
+            //     },3000)
+            //     setTimeout(function(){
+            //         cont[1].style = "display:none;";
+            //         cont[2].style = "display: block";
+            //     },6000)
+            //     setTimeout(function(){
+            //         cont[2].style = "display:none;";
+            //         cont[0].style = "display: block";
+            //     },9000)
+            }    
+            function may(n,t,m){
+                var cont = $(".slide");
+                setTimeout(function(){
+                    var r = (n > 2 ? n - m:n);
+                    if(r  == 0){
+                        cont[1].style = "display:none";
+                        cont[2].style = "display:none";
+                        cont[0].style = "display:block";
+                    }else if(r == 1){
+                        cont[0].style = "display:none";
+                        cont[2].style = "display:none";
+                        cont[1].style = "display:block";
+                    }else{
+                        cont[0].style = "display:none";
+                        cont[1].style = "display:none";
+                        cont[2].style = "display:block";
+                    }
+                        
+                },t);
+    
+            }
+            $("#day").click(function(){
+                alert("Coming Soon !!");
+            });
+            $("#trivia").click(function(){
+                alert("Coming Soon !!");
+            });
+    </script>
+</body>
+</html>

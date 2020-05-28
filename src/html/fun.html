@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <title>Fun and Games</title>
+    <link rel="icon" type="image/ico" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+<body style = "background-color:#c5d4ed;">
+    <div id = "Main" style ="background-color: #fae9ac;">
+        <div id = "header">
+            <center>
+                <h1 ><b>Computer Terminologies</b></h1>
+            </center>
+            </div><br>
+        <div>
+            <div style ="background-color: #fae9ac;" id = "inputlogo">
+                <a href="../../public/index.html"><img id = "logo_pic" src="../img/logo.png" alt = "logo"></a>
+                <h2 id = "gtext">FUN AND GAMES</h2>
+                <a href="../../public/index.html"><span id="home">Home</span></a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <br id="break1">
+            <!-- this is the first game -->
+            <div id ="firstGame" style="margin: auto;background-color: #ebebeb;"><br><br>
+                 <center><span class="show" style="margin-left: 0px;">This is a way to enhance your learnings and memory, click the start button to play</span></center>
+                <button class="show play" style="border-radius:5px;border:none;height: 50%; width: 50%; margin:125px;margin-top: 40px;"onclick="play()"><img style="height: 100%; width: 100%;" src="../img/play-button2.png" ></button>
+                <h2 class="toShow" id="title">Identify me</h2>
+                <br>
+                <br>
+                <br>
+                <fieldset class="toShow">
+                    <legend>Question</legend>
+                    <h3 id="question">Please reload the page</h3>
+                </fieldset>
+                <br>
+                <br>
+                <br>
+                <fieldset class="toShow">
+                    <legend>Answer here !</legend>
+                    <input id="answer" type="text" name=""><br><br>
+                    <input type = "submit"  onclick="submit()"><input onclick="skip()" type="button" id="next" placeholder="Enter your answer" name="" value="skip"><input type="button" onclick="show_ans()" value="Show answer" name="">
+                </fieldset>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <!-- dsgfdsgkofdsgjfd -->
+                
+            </div><br><br>
+            <div id="secondGame" style="margin: auto;background-color: #ebebeb;"><br><br>
+                <center><span class="show1">This is a game that will help your memory and help to get spelling correctly</span></center>
+                <button class="show1 play" style="border-radius:5px;border:none;height: 50%; width: 50%; margin:125px;margin-top: 40px;"onclick="play1()"><img style="height: 100%; width: 100%;" src="../img/play-button2.png" ></button>
+                <h2 class="toshow" id="title">Hangman</h2>
+
+                <div class="toshow">
+                    <p class="life" ></p>
+                    <div class="category">
+                        <select class="select">
+                            <option selected>Select a cetegory</option>
+                            <option value="computerparts">Computer Parts</option>
+                            <option value="computersoftwares">Computer Softwares</option>
+                            <option value="randomTopics">Random Topics</option>
+                        </select>
+                    <div class="screen">
+                        <div id="guess" style="height: 30px;"></div>
+                         <div id="picture" style="display: none;">
+                    </div>
+                    <br>
+                    <div class = "letter">    
+                        <input type="button" value="A" class="sylaboll" name="" onclick="letters('a')">
+                        <input type="button" value="B" class="sylaboll" name="" onclick="letters('b')">
+                        <input type="button" value="C" class="sylaboll" name="" onclick="letters('c')">
+                        <input type="button" value="D" class="sylaboll" name="" onclick="letters('d')">
+                        <input type="button" value="E" class="sylaboll" name="" onclick="letters('e')">
+                        <input type="button" value="F" class="sylaboll" name="" onclick="letters('f')">
+                        <input type="button" value="G" class="sylaboll" name="" onclick="letters('g')">
+                        <input type="button" value="H" class="sylaboll" name="" onclick="letters('h')">
+                        <input type="button" value="I" class="sylaboll" name="" onclick="letters('i')">
+                        <input type="button" value="J" class="sylaboll" name="" onclick="letters('j')">
+                        <input type="button" value="K" class="sylaboll" name="" onclick="letters('k')">
+                        <input type="button" value="L" class="sylaboll" name="" onclick="letters('l')">
+                        <input type="button" value="M" class="sylaboll" name="" onclick="letters('m')">
+                        <input type="button" value="N" class="sylaboll" name="" onclick="letters('n')">
+                        <input type="button" value="O" class="sylaboll" name="" onclick="letters('o')">
+                        <input type="button" value="P" class="sylaboll" name="" onclick="letters('p')">
+                        <input type="button" value="Q" class="sylaboll" name="" onclick="letters('q')">
+                        <input type="button" value="R" class="sylaboll" name="" onclick="letters('r')">
+                        <input type="button" value="S" class="sylaboll" name="" onclick="letters('s')">
+                        <input type="button" value="T" class="sylaboll" name="" onclick="letters('t')">
+                        <input type="button" value="U" class="sylaboll" name="" onclick="letters('u')">
+                        <input type="button" value="V" class="sylaboll" name="" onclick="letters('v')">
+                        <input type="button" value="W" class="sylaboll" name="" onclick="letters('w')">
+                        <input type="button" value="X" class="sylaboll" name="" onclick="letters('x')">
+                        <input type="button" value="Y" class="sylaboll" name="" onclick="letters('y')">
+                        <input type="button" value="Z" class="sylaboll" name="" onclick="letters('z')">
+                        <input type="button" value="HT" class="sylaboll" name="" onclick= "cliked()">
+                    </div>
+                </div>
+                    
+            </div>
+            <br>
+        </div>
+    </div><br><br>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../js/game.js"></script>
+</body>
+</html>

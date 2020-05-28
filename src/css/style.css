@@ -1,0 +1,248 @@
+body{
+  font-family: 
+}
+#header{
+    position: relative;
+    background-color: #c5d4ed;
+    width: 100%;
+    height: 100px;
+    color: white;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin:auto;
+}
+#logo_pic{
+    margin-top: 2px;
+    width: 50px;
+    margin-left: 20px;
+}
+#Main{
+    position: relative;
+    width: 800px;
+    margin: auto;
+    min-height: 600px;
+    box-shadow: 0px 0px 5px grey;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+#footer{
+    margin: auto;
+    width: 800px;
+    height: 20px;
+}
+#inputlogo{
+    width: 100%;
+    background-color:white;
+    position: absolute;
+}
+#search{
+    margin-right: 20%;
+    margin-top: 12px;
+    border:solid green 2px;
+    border-radius: 5px;
+    width: 50px;
+    height: 100%;
+    float: right;
+    margin-left: 0px;
+}
+#in{
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: solid 1px black; 
+    width: 50%;      
+    float:right; 
+    border-radius: 10px;
+    height: 40px;
+
+}
+#input_box{
+    width: 89%;
+    height: 89%;
+    border-radius: 15px;
+    border:none;
+    margin-top: 2px;
+    margin-left: 25px;
+    font-size: 20px;
+}
+#s_l{
+    height: 100%;
+    width: 100%;
+}
+.card1{
+   margin-top: -650px;
+   background-color: cornsilk;
+   display: block;
+   width: 230px;
+   margin-right: 470px;
+   height: 300px;
+   box-shadow: 0px 0px 10px grey;
+   z-index: 2;
+}
+
+li{
+background-color: white;
+height: 30px;
+width: 100%;
+border-top: 1px solid black; 
+border-bottom: 1px solid black; 
+list-style: none;
+padding: 2px;
+display: none;
+}
+li:hover{
+   background-color: grey;
+}
+#word,#means{
+   text-align: center;
+}
+.span{
+  float:right;
+  margin-right: 5px;
+  margin-top: 5px;
+}
+.card{
+   margin-top: 100px;
+   background-color: cornsilk;
+   display: inline-block;
+   width: 230px;
+   margin-left: 0px;
+   height: 300px;
+   box-shadow: 0px 0px 10px grey;
+   z-index: 2; 
+}
+.slide{
+  margin-top: -335px;
+  box-shadow: 0px 0px 10px grey;
+  width: 490px;
+  height: 295px;
+  margin-left: 300px;
+}
+#opening{
+  background-color:#e3c5c6;
+  height: 100%;
+  width: 100%;
+}
+.hr{
+  margin-left: 300px;
+  margin-right: 5px;
+  border: solid grey 2px;
+}
+.images{
+  width: 100%;
+  height: 100%;
+}
+#myForm{
+  padding-left: 10px;
+}
+#day{
+  background-image: url("../img/day.jpg");
+}
+#trivia{
+  background-image: url("../img/trivia.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#fun{
+  background-image: url("../img/fun1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#gtext,#home{
+  display: inline-block;
+  margin-left: 200px;
+}
+
+
+#firstGame,#secondGame{
+  border: solid grey 2px;
+  width: 500px;
+  height: 500px;
+  border-radius:20px;
+  background-color: #dff7e7;
+}
+.done{
+  margin: auto;
+  border: solid grey 2px;
+  width: 500px;
+  height: 500px;
+  border-radius:20px;
+  background-color: #dff7e7;
+}
+#title{
+  display: none;
+  text-align: center;
+}
+.toShow,.toshow{
+  display: none;
+  text-align: center;
+  width: 400px;
+  height: auto;
+  margin: auto;
+
+}
+#answer{
+  width: 100%;
+  margin-top: 20px;
+  height: 30px; 
+  font-size: 30px;
+}
+.congrats{
+  width: 100%;
+  height: 90%;
+}
+.appear{
+  text-align: center;
+}
+.letter{
+  width: 98%;
+  margin: auto;
+}
+.sylaboll{
+  width: 30px;
+  height: 30px;
+  margin-left: 2.5px;
+  margin-top: 5px;
+}
+.screen{
+  margin: auto;
+  width: 99%;
+  height: 180px;
+  border:solid green 2px;
+}
+.category, option{
+  margin: auto;
+  height: 30px;
+  font-size: 20px;
+  margin-top: 50px;
+}
+.select{
+  width: 100%;
+  height: 100%;
+}
+.image{
+  display: none;
+}
+#picture{
+  margin: auto;
+  width: 300px;
+  height: 80%;
+  border: solid green 2px;
+}
+.go{
+  background-color: #25b05e;
+  border: none;
+  margin-top: 160px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  font-size: 30px;
+  font-weight: 200px;
+}
+.go:hover{
+  background-color: #087334;
+}
+.play{
+  background-color: none;
+}
