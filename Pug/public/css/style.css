@@ -1,0 +1,23 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar{
+    background-color: darkslategrey;
+    color: white
+}
+
+.line {
+    display: inline;
+    margin-left: 30px;
+    color: white;
+}
+
+.rem-bull {
+    text-decoration: none;
+}
+
+.del, .up {
+    display: inline-block;
+    float: right;
+}

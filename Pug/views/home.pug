@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    h1 #{title}
+    ul.list-group
+        each article,i in articles
+            li.list-group-item.rem-bull
+                a(href="/article/" + article._id)= article.title   
+                a.btn.btn-danger.ml-5.del(href="#", data-id=article._id) Delete
+                a.btn.btn-primary.ml-5.up(href="/article/" + article._id + "/update") Update
+block footer
+    hr
+    footer Copyright 2020

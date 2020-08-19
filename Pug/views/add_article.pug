@@ -1,0 +1,20 @@
+extends layout.pug
+
+block content 
+    h1 #{title}
+    form(action="/article/add", method="post")
+        #form-group
+            label Title:
+            input.form-control(type="text", name="title", required)
+        #form-group
+            label Author:
+            input.form-control(type="text", name="author", required)
+        #form-group
+            label Date:
+            input.form-control(type="date", name="date", required)
+        #form-group
+            label Body:
+            textarea.form-control(name="body", cols="30", rows="10", required)
+
+        input(type="submit", value="Submit")
+        

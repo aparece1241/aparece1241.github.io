@@ -1,0 +1,21 @@
+extends layout.pug
+
+
+block content
+    h1 #{title}
+    form(action= "/article/"+ article["_id"] +"/update", method="post")
+        #form-group
+            label Title:
+            input.form-control(type="text", name="title", value = article.title)
+        #form-group
+            label Author:
+            input.form-control(type="text", name="author", value = article.author)
+        #form-group
+            label Date:
+            input.form-control(type="date", name="date", value = article.date)
+        #form-group
+            label Body:
+            textarea.form-control(name="body")= article.body
+
+        input(type="submit", value="Submit")
+        //https://www.youtube.com/watch?v=GLL3UIPgU_o
