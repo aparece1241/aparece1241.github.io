@@ -74,7 +74,7 @@ router.post('/:id/update',(req,res)=>{
     let updatedArticle = {
         title: req.body.title,
         author: req.body.author,
-        date: req.body.date,
+        date: (req.body.date=="")? new Date().toString() : req.body.date,
         body: req.body.body
     }
     Articles.findByIdAndUpdate(req.params.id,updatedArticle,{new: true},(err,result)=>{

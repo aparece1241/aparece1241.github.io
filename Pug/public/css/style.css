@@ -1,5 +1,7 @@
 body {
     font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(10, 11, 46);
+    color: white;
 }
 
 .navbar{
@@ -20,4 +22,9 @@ body {
 .del, .up {
     display: inline-block;
     float: right;
+    margin-left: 30px;
+}
+
+a {
+    color: white;
 }

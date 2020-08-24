@@ -62,15 +62,20 @@ let Articles = require('./model/articles.model');
 app.get('/', (req, res) => {
     Articles.find({}, (err, articles) => {
         if (err) {
-            return res.status(500).send(err);
+            return res.status(500).send("Somethings wrong");
         }
         res.render('home', { title: "Articles", articles: articles });
     });
 });
 
 app.use('/article',require('./router/article.route'));
-let ArticleRoutes = require('./router/article.route');
+app.use('/login',require('./router/login.route'));
+app.use('/register',require('./router/register.route'));
 
+
+app.use((err,req,res,next)=>{
+    res.status(500).send(err);
+})
 
 app.listen(port, () => {
     console.log(`Listening in port ${port}!`);

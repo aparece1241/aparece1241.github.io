@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+    form(action= '/login/', method="post")
+        .form-group
+            label(for="name") Name: 
+            input.form-control(type="text" name="name" placeholder="Enter username...")
+
+            label(for="email") Password: 
+            input.form-control(type="password" name="password" placeholder="Enter password...")
+
+            input(type="submit", value="Submit")
+            
+            //https://www.youtube.com/watch?v=Ud5xKCYQTjM

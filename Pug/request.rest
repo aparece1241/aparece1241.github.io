@@ -1,0 +1,27 @@
+GET http://localhost:3000/article/
+
+#####
+
+POST http://localhost:3000/article/add
+Content-Type: application/json
+
+{
+    "title": "New article",
+    "author": "harve",
+    "date":"",
+    "body": "this is an article came from request.rest file"
+}
+
+######
+GET http://localhost:3000/login/get-users
+
+####
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name": "harv",
+    "email": "al@afdf.com",
+    "password": "234343dfgdfhd"
+}
