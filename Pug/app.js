@@ -11,14 +11,6 @@ const flash = require('connect-flash');
 
 let port = 3000;
 
-//Middleware session
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}))
-
 //Express middleware
 app.use(require('connect-flash')());
 app.use(function (req, res, next) {
@@ -29,6 +21,9 @@ app.use(function (req, res, next) {
 //use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
+
+//validator
+app.use(validator());
 
 //set a static directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -53,6 +48,16 @@ db.once('open', () => {
 
 //check for error
 db.on('error', console.error.bind(console, "MongoDB connection failed!"));
+
+//Middleware session
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
+  
+
 
 let Articles = require('./model/articles.model');
 
