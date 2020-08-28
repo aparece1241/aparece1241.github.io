@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const session = require('express-session');
 const validator = require('express-validator');
 const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 
 
 let port = 3000;
@@ -21,9 +22,6 @@ app.use(function (req, res, next) {
 //use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-
-//validator
-app.use(validator());
 
 //set a static directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -50,14 +48,13 @@ db.once('open', () => {
 db.on('error', console.error.bind(console, "MongoDB connection failed!"));
 
 //Middleware session
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))
+app.use(cookieParser());
+app.use(session({secret: 'this is a secret word',
+resave: false,
+saveUninitialized: false,
+cookie:{secure: true}}))
   
-
+//https://www.youtube.com/watch?v=J1qXK66k1y4
 
 let Articles = require('./model/articles.model');
 
@@ -65,6 +62,14 @@ let Articles = require('./model/articles.model');
 
 // render the homepage
 app.get('/', (req, res) => {
+    // if(req.session.page_views > 0){
+    //     req.session.page_views++;
+    //     return res.send(`You visit this page ${req.session.page_views} times!`);
+    // }else{
+    //     req.session.page_views = 1;
+    //     return res.send("Welcome to this page");
+    // }
+    // console.log(req.session.page_views);
     Articles.find({}, (err, articles) => {
         if (err) {
             return res.status(500).send("Somethings wrong");
