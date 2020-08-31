@@ -3,7 +3,9 @@ extends layout.pug
 
 block content
     h1 #{title}
-    form(action= "/article/"+ article["_id"] +"/update", method="post")
+    .row
+        .col-lg-12
+    form(action= "/article/update/" + article["_id"], method="post")
         #form-group
             label Title:
             input.form-control(type="text", name="title", value = article.title)

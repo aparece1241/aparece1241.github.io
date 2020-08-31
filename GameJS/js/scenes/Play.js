@@ -247,7 +247,6 @@ function modifiedFind(positionArray, choosen) {
                 console.log(modIdy + ctr);
             }else{
                 if(positionArray[id].f == positionArray[modIdy + ctr].f){
-                    console.log("Im here");
                     y_axis.push(modIdy + ctr);
                 }
             }
@@ -260,19 +259,22 @@ function modifiedFind(positionArray, choosen) {
                 }
             }   
         }
+        console.log("Color1: ",color[positionArray[choosen[0]].f]);
+        console.log("Color2: ",color[positionArray[choosen[1]].f]);
+    
+        console.log("X: ",modifieldFind_extention(x_axis,10),color[positionArray[id].f]);
+        console.log("Y :",modifieldFind_extention(y_axis,1),color[positionArray[id].f]);
     }
-    console.log("Color1: ",color[positionArray[choosen[0]].f]);
-    console.log("Color2: ",color[positionArray[choosen[1]].f]);
-    console.log("X: ",modifieldFind_extention(x_axis,10));
-    console.log("Y :",modifieldFind_extention(y_axis,1));
 }
 
 function modifieldFind_extention(clonedArray,by){
-    console.log(clonedArray);
     let Counter=0;
-    let By = 0;
+    let By = clonedArray[0];
+    console.log(by);
     for(let ctr = 0;ctr < clonedArray.length;ctr++){
+        
         while (customizedIn(clonedArray, By)) {
+            console.log(customizedIn(clonedArray, By));
             // for decription of this loop see the loop 
             // for x axis above
 
@@ -287,7 +289,7 @@ function modifieldFind_extention(clonedArray,by){
             Counter++;
         }
         if(Counter > 2){
-            tintChoosen(Counter,clonedArray[0],)
+            tintChoosen(Counter,clonedArray[ctr],PositionArray,By,clonedArray);
             return true;
         }else {
             return false;
@@ -419,7 +421,7 @@ function customizedIn(frame, val) {
 
 
 function tintChoosen(counter, id, positionArray, by, clonedArray) {
-
+    console.log("This is the id ",positionArray[id]);
     /**
      * this function is a temporary function
      * the parameter counter,id, and by are integer
@@ -430,7 +432,7 @@ function tintChoosen(counter, id, positionArray, by, clonedArray) {
 
     // this for loop will destroy the the choosen gems by its id
     for (let ctr = 0; ctr < counter; ctr++) {
-
+        
         // this part will destroy the choosen gems
         positionArray[id].sprite.destroy(true);
         positionArray[id].sprite = "";

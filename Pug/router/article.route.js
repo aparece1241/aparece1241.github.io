@@ -4,7 +4,9 @@ const router = express.Router();
 //bring in the article model
 let Articles = require('../model/articles.model');
 
+//https://www.youtube.com/watch?v=-RCnNyD0L-s watch this again
 //get the article by id
+
 router.get('/:id',(req,res)=>{
     Articles.findById(req.params.id,(err,article)=>{
         if(err){
@@ -69,8 +71,8 @@ router.post('/add', (req, res) => {
    
 })
 
-//update one article
-router.post('/:id/update',(req,res)=>{
+//update one article localhost:4200/update/21
+router.post('/update/:id',(req,res)=>{
     let updatedArticle = {
         title: req.body.title,
         author: req.body.author,
