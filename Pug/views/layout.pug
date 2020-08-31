@@ -17,7 +17,8 @@ html(lang="en")
                 a(href="/") Home
             li.line
                 a(href="/article/") Add Article
-
+            if(user)
+                li(href="#") Logout
         block content
 
         block footer

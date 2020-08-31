@@ -17,13 +17,12 @@ router.post('/',validationRule(),validate,(req,res)=>{
         if(err){
             res.status(500).send(err);
         }else{
-            console.log(user);
             if(user == null){
                 res.send("No users found");        
             }else{
                 try {
                     if(await bcrypt.compare(req.body.password, user.password)){
-                        res.send("Success");
+                        res.redirect('/');
                     }else{
                         res.send("not allowed");
                     }
