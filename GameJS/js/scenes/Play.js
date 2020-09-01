@@ -236,10 +236,9 @@ function check(positionArray) {
 }
 function modifiedFind(positionArray, choosen) {
 
-
-    let x_axis = [];
-    let y_axis = [];
     for(let id of choosen){
+        let x_axis = [];
+        let y_axis = [];
         let modIdy = 10 * Math.floor(id * 0.1);
         let modIdx = 10 + id % 10;  
         for(let ctr = 0; ctr < 10; ctr++){
@@ -268,13 +267,12 @@ function modifiedFind(positionArray, choosen) {
 }
 
 function modifieldFind_extention(clonedArray,by){
-    let Counter=0;
+    let defaultBy = by;
     let By = clonedArray[0];
-    console.log(by);
+    console.log(clonedArray);
     for(let ctr = 0;ctr < clonedArray.length;ctr++){
-        
+        let Counter=1;
         while (customizedIn(clonedArray, By)) {
-            console.log(customizedIn(clonedArray, By));
             // for decription of this loop see the loop 
             // for x axis above
 
@@ -288,11 +286,12 @@ function modifieldFind_extention(clonedArray,by){
             By = By + by;
             Counter++;
         }
+        console.log(`element ${By} counter ${Counter}`);
         if(Counter > 2){
-            tintChoosen(Counter,clonedArray[ctr],PositionArray,By,clonedArray);
-            return true;
+            tintChoosen(Counter,clonedArray[ctr],PositionArray,defaultBy,clonedArray);
+            console.log("The condition was true: the counter is ",Counter);
         }else {
-            return false;
+            console.log(false);
         }
     }    
 }
@@ -435,8 +434,8 @@ function tintChoosen(counter, id, positionArray, by, clonedArray) {
         
         // this part will destroy the choosen gems
         positionArray[id].sprite.destroy(true);
-        positionArray[id].sprite = "";
-        positionArray[id].f = undefined;
+        // positionArray[id].sprite = "";
+        // positionArray[id].f = undefined;
         if(clonedArray != undefined){
             clonedArray.splice(clonedArray.findIndex(arrElem => { return arrElem == id; }), 1);
         }
