@@ -21,13 +21,89 @@ console.log(displayHash());
  * 
  */
 
-function countBs(){
+function countBs() {
     let counter = 0;
     let input = document.getElementById("input").value;
-    for(let char of input){
-        if(char == 'B'){
+    for (let char of input) {
+        if (char == 'B') {
             counter++;
         }
     }
     document.getElementById('output').innerHTML = counter;
+}
+
+function countChar() {
+    let counter = 0;
+    let condition = document.getElementById('condition').value;
+    if (condition.length > 1) {
+        alert("'Character to countd' field takes only one character!");
+        document.getElementById('condition').value = "";
+        return;
+    }
+    let input = document.getElementById('input2').value;
+
+    for (let char of input) {
+        if (char == condition) {
+            counter++;
+        }
+    }
+    document.getElementById('output1').innerHTML = counter;
+}
+
+
+/**
+ * exercise 3
+ * 
+ */
+function reverseArray(arr) {
+    let newArray = [];
+    let pos = arr.length - 1;
+    for (let ctr = 0; ctr < arr.length; ctr++) {
+        newArray.push(arr[pos - ctr]);
+    }
+    return newArray;
+}
+console.log(reverseArray([12, 13, 14, 15, 16]));
+
+function reverseArrayInPlace(arr) {
+    return arr.reverse();
+}
+
+console.log(reverseArrayInPlace([12, 13, 14, 15, 16]));
+
+/**
+ * exercise 5
+ */
+
+let parent = document.getElementById('cont');
+var mountains = [
+    {
+        "name": "Kilimanjaro",
+        "height": 5895,
+        "place": "Tanzania"
+    },
+    {
+        "name": "Everest",
+        "height": 8848,
+        "place": "Nepal"
+    },
+    {
+        "name": "Mayon",
+        "height": 2463,
+        "place": "Philippines"
+    },
+    {
+        "name": "Denali",
+        "height": 6190,
+        "place": "USA"
+    }
+];
+console.log(Object.keys(mountains[0]));
+
+function createTable(data,parent){
+    let table = document.createElement('table');
+    let tr = document.createElement('tr');
+    let th = document.createElement('th');
+    let td = document.createElement('td');
+
 }
