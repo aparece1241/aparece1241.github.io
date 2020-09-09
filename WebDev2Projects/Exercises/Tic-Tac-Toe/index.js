@@ -3,10 +3,7 @@ window.onload = () =>{
     Gameboard.createTable();
     Gameboard.enableClick();
 
-    let Player1 = new Player("PLAYER1","O.svg");
-    let Player2 = new Player("PLAYER2","X.png");
-
-    Player1.checkImageExist();
-    
+    let Player1 = new Player("PLAYER1","../assets/O.svg");
+    let Player2 = new Player("PLAYER2","../assets/X.png");
 
 }

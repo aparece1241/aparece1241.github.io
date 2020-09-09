@@ -2,6 +2,11 @@ class CreateSetting
 {
     parent = document.getElementById("gameArea");
     
+    /**
+     * This function will
+     * create the Table board
+     * @param "none"
+     */
     createTable = () => {
         this.data = "";    
         let ctr = 1;
@@ -11,14 +16,22 @@ class CreateSetting
         }
         this.parent.innerHTML = this.data;
     }
-    getClicked = () => {
-        console.log(event.toElement);
-    }
+ 
+    /**
+     * This function will enable the 
+     * the user clicked in the box
+     * @param "none"
+     */
     enableClick = () =>{
         this.cells = document.getElementsByClassName("box");
             
         for(let ctr = 0; ctr < this.cells.length; ctr++){
-            this.cells[ctr].addEventListener('click',this.getClicked);
+            this.cells[ctr].addEventListener('click',Player.clickBox);
         }
     }
+
+    /**
+     * This function 
+     */
+
 }
