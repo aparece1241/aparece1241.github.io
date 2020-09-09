@@ -47,7 +47,7 @@ function countChar() {
             counter++;
         }
     }
-    document.getElementById('output1').innerHTML = counter;
+    document.getElementById('input2').innerHTML = counter;
 }
 
 
@@ -68,14 +68,13 @@ console.log(reverseArray([12, 13, 14, 15, 16]));
 function reverseArrayInPlace(arr) {
     return arr.reverse();
 }
-
 console.log(reverseArrayInPlace([12, 13, 14, 15, 16]));
 
+
 /**
- * exercise 5
+ * exercise 4
  */
 
-let parent = document.getElementById('cont');
 var mountains = [
     {
         "name": "Kilimanjaro",
@@ -98,12 +97,22 @@ var mountains = [
         "place": "USA"
     }
 ];
-console.log(Object.keys(mountains[0]));
 
-function createTable(data,parent){
-    let table = document.createElement('table');
-    let tr = document.createElement('tr');
-    let th = document.createElement('th');
-    let td = document.createElement('td');
-
+/**
+ * 
+ * exercise 4
+ */
+function createTable() {
+    let parent = document.getElementById("cont");
+    let keys = Object.keys(mountains[0]);
+    let elements = "<table id='mountains'><tr><th>" + keys[0] + "</th><th>" + keys[1] + "</th><th>" + keys[2] + "</th></tr>";
+    for (let element of mountains) {
+        elements += "<tr><td>" + element[keys[0]] + "</td><td>" + element[keys[1]] + "</td><td>" + element[keys[2]] + "</td></tr>";
+    }
+    parent.innerHTML = elements;
+    
 }
+
+
+
+

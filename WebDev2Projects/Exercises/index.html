@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Javascript Exercise</title>
-</head>
-<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
+    <style>
+        #cont {
+            margin: 20px;
+            width: 500px;
+            border: solid 2px green;
+        }
+        #mountains {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: right;
+        }
+        table, td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
     <h2>Exercise 1:</h2>
     <h3 style="color: red;">Look at the console</h3>
 
@@ -28,7 +47,10 @@
     <h3 style="color: red;">Look at the console</h3>
 
 
-    <h2>Exercise</h2>
-    <div id="cont"></div>    
+    <h2>Exercise 4:</h2>
+    <div id="cont"></div>
+    <button onclick="createTable()">Show Table</button>
+
 </body>
+
 </html>
