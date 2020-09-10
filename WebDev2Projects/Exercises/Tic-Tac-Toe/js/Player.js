@@ -56,7 +56,7 @@ class Player{
 
     static setProperty(parent, imageUrl, name){
         console.log(name,parent);
-        parent.style = "background-image: "+ imageUrl;
+        parent.style = "background-image: url("+imageUrl+")";
         parent.removeEventListener("click",()=>{
             console.log(`box${parent.id} is clicked!`);
         });
