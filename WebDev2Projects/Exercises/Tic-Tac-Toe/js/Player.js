@@ -1,18 +1,32 @@
+
 class Player{
     score;
     turn;
+    url;
+    name;
     constructor(name = "AnonymousPlayers",url){
         this.name = name;
         this.url = url;
     }
 
+
     /**
-     * This function will get the user clicked 
-     * in each box
-     * @param "none"
+     * This function will 
+     * set image url
+     * 
+     * @param {newUrl} 
      */
-    static clickBox = () => {
-        this.setBackgroundImage(event.toElement);
+    static setUrl(newUrl){
+        this.url = newUrl;
+    }
+    
+    /**
+     * this function will
+     * set the name
+     * @param {newName} 
+     */
+    static setName(newName){
+        this.name = newName;
     }
 
     /**
@@ -31,15 +45,21 @@ class Player{
     getTurn(){
         return this.turn;
     }
+
     /**
-     * This function will set a bacground image into 
-     * the box when ever the clicked into it
-     * @param {parent}
+     * This function is a static function 
+     * used to set image on the element
+     * it will also disable the clickability 
+     * of the box
+     * @param {parent imageUrl, turn}
      */
 
-    static setBackgroundImage(parent){
-        console.log(this.url);
-        parent.style.backgroundImage = this.url;
-    }
+    static setProperty(parent, imageUrl, name){
+        console.log(name,parent);
+        parent.style = "background-image: "+ imageUrl;
+        parent.removeEventListener("click",()=>{
+            console.log(`box${parent.id} is clicked!`);
+        });
+     }
     
 }
