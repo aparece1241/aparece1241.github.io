@@ -1,7 +1,10 @@
+
 class CreateSetting {
+    
     created;
     parent = document.getElementById("gameArea");
     state = true;
+    temp;
 
     /**
      * This function will
@@ -39,7 +42,8 @@ class CreateSetting {
     /**
      * This function will enable the 
      * the user clicked in the box
-     * @param {Player1,Player2}
+     * @param {*} Player1
+     * @param {*} Player2
      */
     enableClick = (Player1,Player2) => {
         if (this.created) {
@@ -47,8 +51,11 @@ class CreateSetting {
 
             for (let ctr = 0; ctr < this.cells.length; ctr++) {
                 this.cells[ctr].addEventListener('click',()=>{
-                    console.log("This is "+ Player1.name, Player1.MOVE+"left.");
-                    Player2.setTurn(true);
+                    console.log(Player1.name, Player1.MOVE);
+                    if(Player1.MOVE > -1){
+                        Player2.setTurn(true);
+                    }
+                
                     Player.setProperty(event.toElement,Player1);
                 });
             }
@@ -56,6 +63,47 @@ class CreateSetting {
     }
 
 
+
+    /**
+     * This function will
+     * Who wins
+     * @param {String} id
+     * @param {Function} gameBoardLoop
+     */
+
+    occupiedCells = {
+        "PLAYER1":[],
+        "PLAYER2":[]
+    };
+    check(id, gameBoardLoop){
+        let winningCombination = [
+            //this is the horizontal part
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+            //this is the vertical part
+            [1,4,7],
+            [2,5,8],
+            [3,6,9],
+            //this is the diagonal part
+            [1,5,9],
+            [3,5,7]
+        ];
+        
+        this.temp = document.getElementsByClassName("box1");
+        if(this.temp.length > 0){
+            this.occupiedCells[id].push(this.temp[this.temp.length - 1].id);
+        }
+
+        if(this.temp.length > 3){
+            for(let ctr = 0;ctr < winningCombination.length; ctr++){
+                for( let combination of winningCombination[ctr]){
+                    console.log(combination);
+                }
+            }
+        }
+        
+    }
 
 
 }

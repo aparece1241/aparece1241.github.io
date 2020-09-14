@@ -4,7 +4,7 @@ class Player{
     turn;
     url;
     name;
-    MOVE = 3;
+    MOVE = 4;
     constructor(name = "AnonymousPlayers",url,turn = false){
         this.name = name;
         this.turn = turn;
@@ -57,10 +57,9 @@ class Player{
      */
 
     static setProperty(parent, Player){
-        parent.style = "background-image: url("+Player.url+"); background-size: cover;";
+        parent.style = "background-image: url("+Player.url+"); background-size: cover;pointer-events: none;";
         parent.className = "box1";
         Player.setTurn(false);
-        console.log(Player.MOVE);
     }   
      
     
