@@ -15,16 +15,14 @@ window.onload = () =>{
 
         if(Player1.turn){            
             alert(`${Player1.name}'s turn!`);
-            Gameboard.enableClick(Player1,Player2);
-            Gameboard.check(Player2.name, gameLoop);  
+            Gameboard.enableClick(Player1,Player2,gameLoop);
             Player1.setTurn(false);
             Player1.MOVE-=1;
         }
 
         if(Player2.turn){
             alert(`${Player2.name}'s turn!`);
-            Gameboard.enableClick(Player2,Player1);
-            Gameboard.check(Player1.name, gameLoop);
+            Gameboard.enableClick(Player2,Player1,,gameLoop);
             Player2.setTurn(false);
             Player2.MOVE-=1;
         }

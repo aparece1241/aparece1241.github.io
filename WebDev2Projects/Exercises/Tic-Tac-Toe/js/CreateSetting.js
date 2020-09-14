@@ -45,13 +45,11 @@ class CreateSetting {
      * @param {*} Player1
      * @param {*} Player2
      */
-    enableClick = (Player1,Player2) => {
+    enableClick = (Player1,Player2,gameLoop) => {
         if (this.created) {
             this.cells = document.getElementsByClassName("box");
-
             for (let ctr = 0; ctr < this.cells.length; ctr++) {
                 this.cells[ctr].addEventListener('click',()=>{
-                    console.log(Player1.name, Player1.MOVE);
                     if(Player1.MOVE > -1){
                         Player2.setTurn(true);
                     }
@@ -59,6 +57,7 @@ class CreateSetting {
                     Player.setProperty(event.toElement,Player1);
                 });
             }
+            this.check(Player1.name,gameLoop);
         }
     }
 
@@ -75,6 +74,7 @@ class CreateSetting {
         "PLAYER1":[],
         "PLAYER2":[]
     };
+    tempo = [];
     check(id, gameBoardLoop){
         let winningCombination = [
             //this is the horizontal part
@@ -93,17 +93,40 @@ class CreateSetting {
         this.temp = document.getElementsByClassName("box1");
         if(this.temp.length > 0){
             this.occupiedCells[id].push(this.temp[this.temp.length - 1].id);
+            this.tempo.push(this.temp[this.temp.length - 1].id);
         }
 
+        if(this.tempo.length >= 8){
+            console.log("Im here!");
+            for(let i = 0; i < 10; i++){
+                if(!this.customizedIn(this.tempo,i)){
+                    console.log(i);
+                }
+            }    
+        }
+        
         if(this.temp.length > 3){
             for(let ctr = 0;ctr < winningCombination.length; ctr++){
+                let counter = 0;
                 for( let combination of winningCombination[ctr]){
-                    console.log(combination);
+                    if(this.customizedIn(this.occupiedCells[id],combination)){
+                        counter++;
+                    }
+                }
+                console.log(`${id}: `,counter);
+                if(counter > 2){
+                    console.log(winningCombination[ctr]);
                 }
             }
         }
-        
+        console.log(this.tempo);
     }
 
-
+    customizedIn(arr, val){
+        for(let el of arr){
+            if(el == val){
+                return true;
+            }
+        }
+    }
 }
