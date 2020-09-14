@@ -4,8 +4,10 @@ class Player{
     turn;
     url;
     name;
-    constructor(name = "AnonymousPlayers",url){
+    MOVE = 3;
+    constructor(name = "AnonymousPlayers",url,turn = false){
         this.name = name;
+        this.turn = turn;
         this.url = url;
     }
 
@@ -54,12 +56,12 @@ class Player{
      * @param {parent imageUrl, turn}
      */
 
-    static setProperty(parent, imageUrl, name){
-        console.log(name,parent);
-        parent.style = "background-image: url("+imageUrl+")";
-        parent.removeEventListener("click",()=>{
-            console.log(`box${parent.id} is clicked!`);
-        });
-     }
+    static setProperty(parent, Player){
+        parent.style = "background-image: url("+Player.url+"); background-size: cover;";
+        parent.className = "box1";
+        Player.setTurn(false);
+        console.log(Player.MOVE);
+    }   
+     
     
 }

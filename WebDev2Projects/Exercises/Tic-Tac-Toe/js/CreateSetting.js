@@ -1,6 +1,7 @@
 class CreateSetting {
     created;
     parent = document.getElementById("gameArea");
+    state = true;
 
     /**
      * This function will
@@ -17,19 +18,38 @@ class CreateSetting {
         this.parent.innerHTML = this.data;
         this.created = true;
     }
+    /**
+     * This function will 
+     * start the game loop
+     * @param {*} update
+     */
+    startLoop(update){
+        return setInterval(update, 60);
+    }
+
+    /**
+     * This function will 
+     * pause the game loop
+     * @param {*} loop 
+     */
+    stopLoop(loop){
+        clearInterval(loop);
+    }
 
     /**
      * This function will enable the 
      * the user clicked in the box
-     * @param {plName,urlImage}
+     * @param {Player1,Player2}
      */
-    enableClick = (plName,urlImage) => {
+    enableClick = (Player1,Player2) => {
         if (this.created) {
             this.cells = document.getElementsByClassName("box");
 
             for (let ctr = 0; ctr < this.cells.length; ctr++) {
                 this.cells[ctr].addEventListener('click',()=>{
-                    Player.setProperty(event.toElement,urlImage,plName);
+                    console.log("This is "+ Player1.name, Player1.MOVE+"left.");
+                    Player2.setTurn(true);
+                    Player.setProperty(event.toElement,Player1);
                 });
             }
         }
