@@ -5,21 +5,28 @@ cp.pixels.brightness = 1
 
 color = 0
 index = 0
-mx = 32
 temp = 0
-while True:  
-    if cp.light > 0:
-        if(cp.light % 32 == 0):
-            index = int((cp.light / 32))
-            temp = 0 if cp.light < 32 else cp.light
-
-    if cp.light < temp:
-        temp = temp -mx
-        index = index -1
-
-    color = int(255 * (cp.light - temp)/ 32) 
-    if index == 10:
-        index - 1
-        color = 247
-    cp.pixels[index] = (0,color,0)
+while True:
     
+    index = cp.light // 32 
+    temp = (cp.light // 32)* 32
+
+    
+
+    for i in range(10):
+        if i == index:
+            color = 255 if int(255 * (cp.light - temp)/ 32) > 255 else int(255 * (cp.light - temp)/ 32)
+            color = 0 if int(255 * (cp.light - temp)/ 32) < 0 else color
+            
+            print(color)
+            cp.pixels[index] = (0,color,0)
+        
+        if i < index:
+            cp.pixels[i] = (0,255,0)
+
+        elif i > index:
+            cp.pixels[i] = (0,0,0)
+    
+
+
+
