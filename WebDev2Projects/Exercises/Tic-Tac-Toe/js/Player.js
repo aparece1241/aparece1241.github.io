@@ -60,6 +60,7 @@ class Player{
         parent.style = "background-image: url("+Player.url+"); background-size: cover;pointer-events: none;";
         parent.className = "box1";
         Player.setTurn(false);
+        return true;
     }   
      
     

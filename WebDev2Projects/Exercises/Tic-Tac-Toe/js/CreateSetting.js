@@ -1,10 +1,13 @@
 
 class CreateSetting {
-    
+
     created;
     parent = document.getElementById("gameArea");
-    state = true;
-    temp;
+    GameOver = false;
+    cells;
+    victorous = [];
+
+
 
     /**
      * This function will
@@ -26,17 +29,46 @@ class CreateSetting {
      * start the game loop
      * @param {*} update
      */
-    startLoop(update){
+    startLoop(update) {
         return setInterval(update, 60);
     }
+
+
 
     /**
      * This function will 
      * pause the game loop
      * @param {*} loop 
      */
-    stopLoop(loop){
+    stopLoop(loop) {
         clearInterval(loop);
+    }
+
+    /**
+     * This function will display the message
+     * @param {String} message 
+     */
+    setInfoTurn(message) {
+        console.log("Im here");
+        let parent = document.getElementById("turn");
+        parent.innerText = message;
+    }
+
+    /**
+     * This function will reset all the 
+     * changes the players do
+     * @param {*} Player1 
+     * @param {*} Player2 
+     */
+  
+    reset(Player1, Player2) {
+        let cells = document.getElementById("gameArea").children;
+        for(let cell of cells){
+            cell.remove();
+        }
+        this.createTable();
+        Player1.MOVE = 4;
+        Player2.MOVE = 4;
     }
 
     /**
@@ -44,89 +76,103 @@ class CreateSetting {
      * the user clicked in the box
      * @param {*} Player1
      * @param {*} Player2
+     * @param {*} gameLoop
      */
-    enableClick = (Player1,Player2,gameLoop) => {
+    enableClick = (Player1, Player2, gameLoop) => {
+
         if (this.created) {
             this.cells = document.getElementsByClassName("box");
-            for (let ctr = 0; ctr < this.cells.length; ctr++) {
-                this.cells[ctr].addEventListener('click',()=>{
-                    if(Player1.MOVE > -1){
-                        Player2.setTurn(true);
+
+            console.log(Player1.name, Player1.MOVE);
+            this.setInfoTurn(`${Player1.name}'s turn!`);
+
+
+
+            let get = true;
+            for (let cell of this.cells) {
+
+                cell.addEventListener('click', () => {
+                    Player2.setTurn(true);
+                    if (get) {
+                        if(Player1.MOVE < 0 && Player2.MOVE <= 0){
+                            this.GameOver = true;
+                            this.victorous = [];
+                        }
+                        Player.setProperty(event.toElement, Player1)
+                        this.check(Player1.name, event.target.getAttribute("id"), gameLoop);
+                        get = false;
                     }
-                
-                    Player.setProperty(event.toElement,Player1);
+
                 });
+
             }
-            this.check(Player1.name,gameLoop);
         }
     }
-
-
 
     /**
-     * This function will
-     * Who wins
-     * @param {String} id
-     * @param {Function} gameBoardLoop
+     * This function will return the 
+     * winner and return 
+     * nothing if there is no winner
+     * @param "none"
      */
 
-    occupiedCells = {
-        "PLAYER1":[],
-        "PLAYER2":[]
-    };
-    tempo = [];
-    check(id, gameBoardLoop){
-        let winningCombination = [
-            //this is the horizontal part
-            [1,2,3],
-            [4,5,6],
-            [7,8,9],
-            //this is the vertical part
-            [1,4,7],
-            [2,5,8],
-            [3,6,9],
-            //this is the diagonal part
-            [1,5,9],
-            [3,5,7]
-        ];
-        
-        this.temp = document.getElementsByClassName("box1");
-        if(this.temp.length > 0){
-            this.occupiedCells[id].push(this.temp[this.temp.length - 1].id);
-            this.tempo.push(this.temp[this.temp.length - 1].id);
-        }
-
-        if(this.tempo.length >= 8){
-            console.log("Im here!");
-            for(let i = 0; i < 10; i++){
-                if(!this.customizedIn(this.tempo,i)){
-                    console.log(i);
-                }
-            }    
-        }
-        
-        if(this.temp.length > 3){
-            for(let ctr = 0;ctr < winningCombination.length; ctr++){
-                let counter = 0;
-                for( let combination of winningCombination[ctr]){
-                    if(this.customizedIn(this.occupiedCells[id],combination)){
-                        counter++;
-                    }
-                }
-                console.log(`${id}: `,counter);
-                if(counter > 2){
-                    console.log(winningCombination[ctr]);
-                }
-            }
-        }
-        console.log(this.tempo);
+    getVictorous(){
+        console.log(this.victorous);
+        return this.victorous;
     }
 
-    customizedIn(arr, val){
-        for(let el of arr){
-            if(el == val){
+
+    occupiedCells = {
+        "PLAYER1": [],
+        "PLAYER2": []
+    };
+    /**
+     * This function will check if someone wins
+     * @param {*} name 
+     * @param {*} id 
+     */
+    check(name, id) {
+
+        let winningCombination = [
+            //this is the horizontal part
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
+            //this is the vertical part
+            [1, 4, 7],
+            [2, 5, 8],
+            [3, 6, 9],
+            //this is the diagonal part
+            [1, 5, 9],
+            [3, 5, 7]
+        ];
+        this.occupiedCells[name].push(id);
+        for (let combination of winningCombination) {
+            if (this.customizedIn(this.occupiedCells[name], combination[0]) &&
+                this.customizedIn(this.occupiedCells[name], combination[1]) &&
+                this.customizedIn(this.occupiedCells[name], combination[2])) {
+                    this.GameOver = true;
+                    this.victorous = [name];
+            }
+        }
+
+       
+    }
+
+    /**
+     * This function will check if 
+     * the value exist in the array
+     * @param {Array} arr 
+     * @param {Number} val 
+     */
+    customizedIn(arr, val) {
+        for (let el of arr) {
+            if (el == val) {
                 return true;
             }
         }
+        return false;
     }
+
 }
+

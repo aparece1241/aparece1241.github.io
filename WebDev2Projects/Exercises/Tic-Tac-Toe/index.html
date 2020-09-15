@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style type="text/css">
         #gameArea {
             border-radius: 5px;
@@ -20,6 +21,7 @@
             width: 200px;
             height: 200px;
         }
+
         .box1 {
             /* background-image: url("assets/X.png"); */
             margin-top: -5px;
@@ -34,10 +36,18 @@
 <body>
 
 
-    
+
     <center>
+        <div>
+            <h2>Who's Turn?</h2>
+            <br>
+            <span id="turn"></span>
+            <br>
+        </div>
+        <br>
         <div id="gameArea"></div>
     </center>
+   
     <script src="js/Player.js"></script>
     <script src="js/CreateSetting.js"></script>
     <script src="index.js"></script>
