@@ -5,7 +5,7 @@ class CreateSetting {
     parent = document.getElementById("gameArea");
     GameOver = false;
     cells;
-    victorous = [];
+    victorous;
 
 
 
@@ -69,6 +69,9 @@ class CreateSetting {
         this.createTable();
         Player1.MOVE = 4;
         Player2.MOVE = 4;
+        this.occupiedCells.PLAYER1 = [];
+        this.occupiedCells.PLAYER2 = [];
+        console.log(this.occupiedCells);
     }
 
     /**
@@ -96,7 +99,10 @@ class CreateSetting {
                     if (get) {
                         if(Player1.MOVE < 0 && Player2.MOVE <= 0){
                             this.GameOver = true;
-                            this.victorous = [];
+                            this.victorous = {
+                                "message": "That was a tough game, tied!",
+                                "icon": "info"    
+                            };
                         }
                         Player.setProperty(event.toElement, Player1)
                         this.check(Player1.name, event.target.getAttribute("id"), gameLoop);
@@ -152,7 +158,10 @@ class CreateSetting {
                 this.customizedIn(this.occupiedCells[name], combination[1]) &&
                 this.customizedIn(this.occupiedCells[name], combination[2])) {
                     this.GameOver = true;
-                    this.victorous = [name];
+                    this.victorous = {
+                        "message": `${name} wins!`,
+                        "icon": "success"
+                    };
             }
         }
 

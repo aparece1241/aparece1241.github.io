@@ -16,20 +16,23 @@ window.onload = () =>{
             console.log(Gameboard.victorous);
             Gameboard.setInfoTurn("Game Over");
             Swal.fire({
-                title: ``,
-                text: "You won't be able to revert this!",
-                icon: 'warning',
+                title: `${Gameboard.victorous.message}`,
+                text: "Would you like to play again?",
+                icon: `${Gameboard.victorous.icon}`,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Continue'
+                confirmButtonText: 'Yes, Please'
               }).then((result) => {
                 if (result.isConfirmed) {
                   Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Ok lets start again!',
+                    'Ready!',
                     'success'
                   )
+                }else{
+                  window.open('','_parent',''); 
+                  window.close();
                 }
               })
             Gameboard.reset(Player1,Player2);
