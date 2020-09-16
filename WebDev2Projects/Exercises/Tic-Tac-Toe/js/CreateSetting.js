@@ -8,7 +8,6 @@ class CreateSetting {
     victorous;
 
 
-
     /**
      * This function will
      * create the Table board
@@ -49,7 +48,6 @@ class CreateSetting {
      * @param {String} message 
      */
     setInfoTurn(message) {
-        console.log("Im here");
         let parent = document.getElementById("turn");
         parent.innerText = message;
     }
@@ -60,10 +58,10 @@ class CreateSetting {
      * @param {*} Player1 
      * @param {*} Player2 
      */
-  
+
     reset(Player1, Player2) {
         let cells = document.getElementById("gameArea").children;
-        for(let cell of cells){
+        for (let cell of cells) {
             cell.remove();
         }
         this.createTable();
@@ -71,7 +69,6 @@ class CreateSetting {
         Player2.MOVE = 4;
         this.occupiedCells.PLAYER1 = [];
         this.occupiedCells.PLAYER2 = [];
-        console.log(this.occupiedCells);
     }
 
     /**
@@ -85,8 +82,6 @@ class CreateSetting {
 
         if (this.created) {
             this.cells = document.getElementsByClassName("box");
-
-            console.log(Player1.name, Player1.MOVE);
             this.setInfoTurn(`${Player1.name}'s turn!`);
 
 
@@ -97,11 +92,11 @@ class CreateSetting {
                 cell.addEventListener('click', () => {
                     Player2.setTurn(true);
                     if (get) {
-                        if(Player1.MOVE < 0 && Player2.MOVE <= 0){
+                        if (Player1.MOVE < 0 && Player2.MOVE <= 0) {
                             this.GameOver = true;
                             this.victorous = {
                                 "message": "That was a tough game, tied!",
-                                "icon": "info"    
+                                "icon": "info"
                             };
                         }
                         Player.setProperty(event.toElement, Player1)
@@ -122,7 +117,7 @@ class CreateSetting {
      * @param "none"
      */
 
-    getVictorous(){
+    getVictorous() {
         console.log(this.victorous);
         return this.victorous;
     }
@@ -157,15 +152,15 @@ class CreateSetting {
             if (this.customizedIn(this.occupiedCells[name], combination[0]) &&
                 this.customizedIn(this.occupiedCells[name], combination[1]) &&
                 this.customizedIn(this.occupiedCells[name], combination[2])) {
-                    this.GameOver = true;
-                    this.victorous = {
-                        "message": `${name} wins!`,
-                        "icon": "success"
-                    };
+                this.GameOver = true;
+                this.victorous = {
+                    "message": `${name} wins!`,
+                    "icon": "success"
+                };
             }
         }
 
-       
+
     }
 
     /**
