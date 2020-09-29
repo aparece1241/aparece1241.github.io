@@ -78,7 +78,7 @@ class CreateSetting {
      * @param {*} Player2
      * @param {*} gameLoop
      */
-    enableClick = (Player1, Player2, gameLoop) => {
+    enableClick = (Player1, Player2, gameLoop, keyName) => {
 
         if (this.created) {
             this.cells = document.getElementsByClassName("box");
@@ -100,7 +100,7 @@ class CreateSetting {
                             };
                         }
                         Player.setProperty(event.toElement, Player1)
-                        this.check(Player1.name, event.target.getAttribute("id"), gameLoop);
+                        this.check(keyName,event.target.getAttribute("id"),Player1.name);
                         get = false;
                     }
 
@@ -132,7 +132,7 @@ class CreateSetting {
      * @param {*} name 
      * @param {*} id 
      */
-    check(name, id) {
+    check(keyname, id, name) {
 
         let winningCombination = [
             //this is the horizontal part
@@ -147,11 +147,11 @@ class CreateSetting {
             [1, 5, 9],
             [3, 5, 7]
         ];
-        this.occupiedCells[name].push(id);
+        this.occupiedCells[keyname].push(id);
         for (let combination of winningCombination) {
-            if (this.customizedIn(this.occupiedCells[name], combination[0]) &&
-                this.customizedIn(this.occupiedCells[name], combination[1]) &&
-                this.customizedIn(this.occupiedCells[name], combination[2])) {
+            if (this.customizedIn(this.occupiedCells[keyname], combination[0]) &&
+                this.customizedIn(this.occupiedCells[keyname], combination[1]) &&
+                this.customizedIn(this.occupiedCells[keyname], combination[2])) {
                 this.GameOver = true;
                 this.victorous = {
                     "message": `${name} wins!`,

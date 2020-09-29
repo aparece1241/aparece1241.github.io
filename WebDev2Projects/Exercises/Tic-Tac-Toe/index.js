@@ -5,34 +5,34 @@ window.addEventListener('beforeunload', (event) => {
 window.onload = () =>{
     //My form//
   let Gameboard = new CreateSetting();
-  let Player1 = new Player("Player1","assets/O.svg",true);
-  let Player2 = new Player("Player2","assets/X.png",false);
+ 
   let prepared = false;
+  let Player1;
 
-  let firstLoop = Gameboard.startLoop(getName);
-
-  function getName(){
-    console.log("Repeating");
-  }
-
-
-    
+  document.getElementById("name").addEventListener('click',()=>{
+    console.log("im here");
+    Player1 = new Player(document.getElementById("playerName").value,"assets/O.svg",true);
+    document.getElementById("modal").style = "display: none;";
+    document.getElementById("contain").style = "display: block;";
+    prepared = true;
+  });
+  let Player2 = new Player("Player2","assets/X.png",false);
   Gameboard.createTable();
 
 
-
-  let gameLoop;
-  if(prepared){
-    gameLoop = Gameboard.startLoop(update);
-  }
+  let gameLoop = Gameboard.startLoop(update);
+  
+  
 
     function update(){
+      if(!prepared){
+        return;
+      }else{
         if(Gameboard.GameOver){
             Gameboard.setInfoTurn("Game Over");
             Swal.fire({
                 title: `${Gameboard.victorous.message}`,
                 text: "Would you like to play again?",
-                input: "text",
                 icon: `${Gameboard.victorous.icon}`,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -56,16 +56,17 @@ window.onload = () =>{
         }
 
         if(Player1.turn){            
-            Gameboard.enableClick(Player1,Player2,gameLoop);
+            Gameboard.enableClick(Player1,Player2,gameLoop,"PLAYER1");
             Player1.setTurn(false);
             Player1.MOVE-=1;
         }
 
         if(Player2.turn){
-            Gameboard.enableClick(Player2,Player1,gameLoop);
+            Gameboard.enableClick(Player2,Player1,gameLoop,"PLAYER2");
             Player2.setTurn(false);
             Player2.MOVE-=1;
         }
+      }
     }
 
 }

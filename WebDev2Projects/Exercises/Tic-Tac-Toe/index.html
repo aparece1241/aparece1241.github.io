@@ -7,6 +7,10 @@
     <title>Tic-Tac-Toe</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
         #gameArea {
             border-radius: 5px;
             width: 700px;
@@ -42,7 +46,7 @@
         }
 
         #modal {
-            display: none;
+            display: block;
             position: fixed;
             z-index: 1;
             padding-top: 250px;
@@ -58,10 +62,10 @@
             margin: auto;
             padding: 0;
             border: 1px solid #888;
-            width: 70%;
+            width: 30%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             animation-name: animate;
-            animation-duration: 0.4s
+            animation-duration: 1s
         }
 
         #contain {
@@ -73,11 +77,13 @@
 <body>
     <div id="modal">
         <div id="modal-content">
-            <h3>Hello this is a modal</h3>
+            <h3>Hello welcome player!</h3>
+                <label for="name">Enter Player name:</label><br>
+                <input type="text" id="playerName" placeholder="Ex. Player1"><br>   
+                <input type="button" id="name" value="Submit"><br>
         </div>
     </div>
 
-    <button onclick="show()"></button>
     <center>
         <div id="contain">
             <div>
