@@ -234,6 +234,7 @@ function check(positionArray) {
     }
     find(frameArray, positionArray);
 }
+
 function modifiedFind(positionArray, choosen) {
 
     for(let id of choosen){
@@ -241,6 +242,7 @@ function modifiedFind(positionArray, choosen) {
         let y_axis = [];
         let modIdy = 10 * Math.floor(id * 0.1);
         let modIdx = 10 + id % 10;  
+        console.log(id);
         for(let ctr = 0; ctr < 10; ctr++){
             if(positionArray[id] == positionArray[modIdy + ctr].f){
                 console.log(modIdy + ctr);
@@ -258,8 +260,10 @@ function modifiedFind(positionArray, choosen) {
                 }
             }   
         }
+        
         console.log("Color1: ",color[positionArray[choosen[0]].f]);
         console.log("Color2: ",color[positionArray[choosen[1]].f]);
+        console.log(x_axis,y_axis);
     
         console.log("X: ",modifieldFind_extention(x_axis,10),color[positionArray[id].f]);
         console.log("Y :",modifieldFind_extention(y_axis,1),color[positionArray[id].f]);
@@ -286,10 +290,10 @@ function modifieldFind_extention(clonedArray,by){
             By = By + by;
             Counter++;
         }
-        console.log(`element ${By} counter ${Counter}`);
+        // console.log(`element ${By} counter ${Counter}`);
         if(Counter > 2){
             tintChoosen(Counter,clonedArray[ctr],PositionArray,defaultBy,clonedArray);
-            console.log("The condition was true: the counter is ",Counter);
+            // console.log("The condition was true: the counter is ",Counter);
         }else {
             console.log(false);
         }
